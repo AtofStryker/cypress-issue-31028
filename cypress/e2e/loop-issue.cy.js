@@ -36,12 +36,13 @@ before(() => {
   cy.getRandomBaseUrl();
 });
 
+/**
+ * tests only run into the issue when injectDocumentDomain is set to true
+ */
 it("tests page A", () => {
-  cy.visit(pages[baseUrls[previousRandomBaseUrl]].a);
-  cy.contains("A");
+  cy.visit(baseUrls[previousRandomBaseUrl] + pages[baseUrls[previousRandomBaseUrl]].a);
 });
 
 it("tests page B", () => {
   cy.visit(pages[baseUrls[previousRandomBaseUrl]].b);
-  cy.contains("B");
 });
